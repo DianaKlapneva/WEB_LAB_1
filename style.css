@@ -3,9 +3,12 @@
     font-family: Verdana;
 }
 
+h1 {
+    color: white;
+}
 
 html, body {
-    margin: 0,
+    margin: 0;
     padding: 0;
 }
 
@@ -13,8 +16,19 @@ html, body {
     margin: 0;
 }
 
+.nav li{
+    display: inline;
+}
+
+.nav a{
+    display: inline-block;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+}
 .main-header {
     background-image: url(Images/jade.jpg);
     background-size: cover;
     padding-bottom: 20px;
+    height: 450px;
 }
