@@ -5,6 +5,8 @@
 
 h1 {
     color: white;
+    font-family: Brush Script MT;
+    font-size: 70px;
 }
 
 html, body {
@@ -25,6 +27,13 @@ html, body {
     padding: 5px;
     color: white;
     text-decoration: none;
+}
+
+.main-nav {
+    text-align: center;
+    font-size: 4em;
+    font-weight: lighter;
+
 }
 .main-header {
     background-image: url(Images/jade.jpg);
