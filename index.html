@@ -1,93 +1,134 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Faity Tiles</title>
+	<meta charset="UTF-8">
+	<title>FairyTiles Каталог</title>
+	<meta name="description" content="Каталог кермаической плитки FairyTiles. Купить керамическую плитку в СПБ по доступной цене.">
+
 </head>
 <body>
     <header>
-        <h3>Faity Tiles</h3>
+	<nav>
+		<ul>
+          <li><a href="index.html">На главную</a></li>
+          <li><a href="catalogue.html">Каталог</a></li>
+          <li><a href="#cart">Корзина</a></li>
+		</ul>
+	</nav>
+        <h1>FairyTiles</h1>
+        <hr>
     </header>
+    <section id="tiles">
+      <h3>Плитка</h3>
+      <div>
+        <div>
+          <strong>Плитка керамическая FairyTiles Синий 360X360 чип 48X48 уп. 5 шт.</strong>
+        </div>
+        <img src="Images/blue.jpg" alt="Плитка керамическая FairyTiles Синий">
+        <div>
+          <span>1200 руб.</span>
+          <button type="button">Добавить в корзину</button>
+        </div>
+      </div>
+      <div>
+        <div>
+          <strong>Плитка керамическая FairyTiles Желтый 360X360 чип 48X48 уп. 5 шт.</strong>
+        </div>
+        <img src="Images/yellow.jpg" alt="Плитка керамическая FairyTiles Желтый">
+        <div>
+          <span>1200 руб.</span>
+          <button type="button">Добавить в корзину</button>
+        </div>
+      </div>
+      <div>
+        <div>
+          <strong>Плитка керамическая FairyTiles Красный 360X360 чип 48X48 уп. 5 шт.</strong>
+        </div>
+        <img src="Images/red.jpg" alt="Плитка керамическая FairyTiles Красный">
+        <div>
+          <span>1200 руб.</span>
+          <button type="button">Добавить в корзину</button>
+        </div>
+      </div>
+      <div>
+        <div>
+          <strong>Плитка керамическая FairyTiles Фиолетовый 360X360 чип 48X48 уп. 5 шт.</strong>
+        </div>
+        <img src="Images/purple.jpg" alt="Плитка керамическая FairyTiles Фиолетовый">
+        <div>
+          <span>1200 руб.</span>
+          <button type="button">Добавить в корзину</button>
+        </div>
+      </div>
+      <div>
+        <div>
+          <strong>Плитка керамическая FairyTiles Зеленый 360X360 чип 48X48 уп. 5 шт.</strong>
+        </div>
+        <img src="Images/green.jpg" alt="Плитка керамическая FairyTiles Зеленый">
+        <div>
+          <span>1200 руб.</span>
+          <button type="button">Добавить в корзину</button>
+        </div>
+      </div>
+      <div>
+        <div>
+          <strong>Плитка керамическая FairyTiles Коричневый 360X360 чип 48X48 уп. 5 шт.</strong>
+        </div>
+        <img src="Images/brown.jpg" alt="Плитка керамическая FairyTiles Коричневый">
+        <div>
+          <span>1200 руб.</span>
+          <button type="button">Добавить в корзину</button>
+        </div>
+      </div>
+    </section>
+    
+    <section id="grout">
+      <h3>Затирка</h3>
+      <div>
+        <strong>Затирка водостойкая Белый 5 кг.</strong>
+        </div>
+        <img src="Images/ceresit_white.jpg" alt="Затирка водостойкая Белый">
+        <div>
+          <span>998 руб.</span>
+          <button type="button">Добавить в корзину</button>
+        </div>
 
-    <button id="order" popovertarget="orderform">Оформить заказ</button>
+      <div>
+        <div>
+          <strong>Затирка водостойкая Черный 5 кг.</strong>
+        </div>
+        <img src="ceresit_black.jpg" alt="Затирка водостойкая Черный">
+        <div>
+          <span>998 руб.</span>
+          <button type="button">Добавить в корзину</button>
+        </div>
+      </div>
+    </section>
+    
+    <section id="cart">
+      <h3>Корзина</h3>
+      <div>
+        <strong>Товар</strong>
+        &lt;&gt;
+        <strong>Цена</strong>
+        &lt;&gt;
+        <strong>Кол-во</strong>
+      </div>
+      <div>
+        <img src="Images/brown.jpg" alt="Плитка керамическая FairyTiles Коричневый" width="100" height="100">
+        <span>Плитка</span>
+        &lt;&gt;
+        <span>$19.99</span>
+        &lt;&gt;
+        <input type="number" min="1" value="1" oninput="validity.valid||(value='');" >
+        <button type="button">Удалить из корзины</button>
+      </div>
+      <hr>
+    </section>
 
-    <div id="orderform" popover>
-        <button popovertarget="orderform" popovertargetaction="hide">
-            <span aria-hidden="true"></span>
-            <span class="sr-only">Закрыть</span>
-        </button>
-        <p>Оформление заказа</p>
-
-        <input id="firstname" type="text" placeholder="Имя">
-        <br><br>
-        <input id="lastname" type="text" placeholder="Фамилия">
-        <br><br>
-        <input id="address" type="text" placeholder="Адрес">
-        <br><br>
-        <input id="phonenumber" type="tel" placeholder="+7XXXXXXXXXX">
-        <br><br>
-        <button id="submit" disabled onclick="
-                const popup=this.closest('[popover]');
-                const originalContent=popup.innerHTML;
-                popup.innerHTML=`
-            <button popovertarget='orderform' popovertargetaction='hide'>
-                <span aria-hidden='true'></span>
-                <span class='sr-only'>Закрыть</span>
-            </button>
-            <p>Заказ оформлен</p>
-        `;
-
-        // Возвращаем форму на след. раз
-        popup.addEventListener('toggle', function(event) {
-            if (event.newState === 'open') {
-                popup.innerHTML = originalContent;
-            }
-        });
-    ">Подтвердить заказ</button>
-    </div>
-
-    <script>
-        // Ждем загрузки DOM
-        document.addEventListener('DOMContentLoaded', function() {
-            const firstname = document.getElementById('firstname');
-            const lastname = document.getElementById('lastname');
-            const address = document.getElementById('address');
-            const phonenumber = document.getElementById('phonenumber');
-            const submit = document.getElementById('submit');
-            const orderButton = document.getElementById('order'); // Добавлено
-            const orderForm = document.getElementById('orderform'); // Добавлено
-
-            function validateInputs() {
-                submit.disabled = !(firstname.value.trim() && 
-                                  lastname.value.trim() && 
-                                  address.value.trim() && 
-                                  phonenumber.value.trim());
-            }
-
-            firstname.addEventListener('input', validateInputs);
-            lastname.addEventListener('input', validateInputs);
-            address.addEventListener('input', validateInputs);
-            phonenumber.addEventListener('input', validateInputs);
-
-            // Это отключаем изначальные настройки popover тк он уходит если снова нажать кнопку
-            orderForm.addEventListener('beforetoggle', function(event) {
-                if (event.newState === 'closed') {
-                    // Проверяем, было ли событие инициировано кнопкой "Оформить заказ"
-                    if (event.originalEvent && event.originalEvent.target === orderButton) {
-                        event.preventDefault();
-                    }
-                }
-            });
-
-            // Доп защита - предотвращаем клик по кнопке когда форма открыта
-            orderButton.addEventListener('click', function(event) {
-                if (orderForm.matches(':popover-open')) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    event.stopImmediatePropagation();
-                }
-            });
-        });
-    </script>
+    <footer>
+      <h3>FairyTiles</h3>
+      Все права незащищены :3
+    </footer>
 </body>
 </html>
