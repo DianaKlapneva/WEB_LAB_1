@@ -5,7 +5,7 @@
 h1 {
     color: white;
     font-family: Brush Script MT;
-    font-size: 70px;
+    font-size: 120px;
 }
 
 html, body {
@@ -33,7 +33,7 @@ body {
 
 .main-nav {
     text-align: center;
-    font-size: 4em;
+    font-size: 2em;
     font-weight: lighter;
 
 }
