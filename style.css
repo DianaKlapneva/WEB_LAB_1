@@ -11,6 +11,7 @@ h1 {
 html, body {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -42,4 +43,18 @@ body {
     background-size: cover;
     padding-bottom: 20px;
     height: 450px;
+}
+
+.section-header {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: normal;
+}
+
+.btn {
+    text-align: center;
+    vertical-align: middle;
+    padding: .7em;
+    border-radius: 20;
+
 }
