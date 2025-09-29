@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 
+
 h1 {
     color: white;
     font-family: Brush Script MT;
@@ -22,6 +23,7 @@ body {
 }
 .nav ul {
     margin: 0;
+    padding: 0;
 }
 
 .nav li{
@@ -30,7 +32,7 @@ body {
 
 .nav a{
     display: inline-block;
-    padding: 5px;
+    padding:  10px 15px;
     color: white;
     text-decoration: none;
 }
@@ -45,11 +47,12 @@ body {
     background-size: cover;
     padding-bottom: 20px;
     height: 450px;
+    text-align: center;
 }
 
 .container {
-    max-width: 900px;
-    margin: 1em;
+    max-width: 1200px;
+    margin: 1em auto;
     padding: 0 1.5em;
 }
 
@@ -57,11 +60,26 @@ body {
     text-align: center;
     font-size: 2.5em;
     font-weight: normal;
+    margin-bottom: 1em;
 }
 
 .shop-item {
-    margin: 30 px;
+    margin: 15 px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1 1 300px; //адаптивность
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
 
+}
+
+.shop-item img {
+    max-width: 100%; //адаптивность
+    height: auto;
+    margin-bottom: 10px;
 }
 
 .shop-item-title{
@@ -69,12 +87,19 @@ body {
     width: 100%;
     text-align: center;
     margin-bottom: 15px;
+    font-size: 1em;
+    line-height: 1.4;
+    flex-grow: 1; //выравнивание
 }
 
 .details {
     display: flex;
     align-items: center;
     padding: 5px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto; //прижимание к низу
 }
 
 .price {
@@ -84,22 +109,28 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 20px;
 }
 
 .btn {
     text-align: center;
     vertical-align: middle;
-    padding: .7em;
-    border-radius: 10%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
     color: white;
     background-color: #0b5115ff;
     font-weight: bold;
+    width: 100%;
+    max-width: 200px;
 
 }
 
 .cart-header {
     font-weight: bold;
     font-size: 1.25em;
+    padding: 10px 0;
 }
 
 .cart-column {
@@ -112,17 +143,91 @@ body {
 
 .cart-row {
     display: flex;
+    align-items: center;
+    padding: 15px 0;
+    flex-wrap: wrap;
 }
 
 .cart-item {
     width: 45%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .cart-price {
     width: 20%;
     font-size: 1.2em;
+    text-align: center;
 }
 
 .cart-amount {
     width: 35%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.cart-amount input {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+}
+
+//медиа-запросы для адаптивности!!
+@media (max-width: 768px) {
+    h1 {
+        font-size: 100px;
+    }
+    
+    .nav a {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+    
+    .shop-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    
+    .cart-row {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cart-item,
+    .cart-price,
+    .cart-amount {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .cart-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .cart-amount {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .section-header {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 70px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    .main-header {
+        height: 300px;
+    }
 }
