@@ -6,6 +6,7 @@
 	<meta name="description" content="Каталог кермаической плитки FairyTiles. Купить керамическую плитку в СПБ по доступной цене.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css"/>
+  <script src="store.js" async></script>
 </head>
 <body>
     <header class="main-header">
@@ -133,10 +134,14 @@
         <span class="cart-price cart-column">1200 руб.</span>
         <div class="cart-amount cart-column">
           <input type="number" min="1" value="1" oninput="validity.valid||(value='');" >
-          <button class="btn" type="button">Удалить из корзины</button>
+          <button class="btn btn-delete" type="button">Удалить из корзины</button>
         </div>
       </div>
       
+      <div class="cart-total-row">
+        <span class="cart-total-label">Total:</span>
+        <span class="cart-total-price">1200 руб.</span>
+    </div>
 
     </section>
 

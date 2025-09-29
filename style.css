@@ -127,7 +127,10 @@ body {
     font-weight: bold;
     width: 100%;
     max-width: 200px;
+}
 
+.btn-delete{
+    //это современнее, чем id??
 }
 
 .cart-header-row {
@@ -202,6 +205,31 @@ body {
     width: 60px;
     padding: 5px;
     text-align: center;
+}
+
+.cart-total-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 15px;
+    border-top: 2px solid #0b5115ff;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.cart-total-label {
+    margin-right: 20px;
+    color: #0b5115ff;
+}
+
+.cart-total-price {
+    min-width: 150px;
+    text-align: center;
+    background-color: #f0f8f0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #0b5115ff;
 }
 
 //медиа-запросы для адаптивности!!
