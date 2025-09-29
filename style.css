@@ -8,15 +8,17 @@ h1 {
     font-size: 170px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 html, body {
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
 }
 
 body {
     font-family: Verdana;
-    font-color: #052409;
+    color: #052409;
 }
 .nav ul {
     margin: 0;
