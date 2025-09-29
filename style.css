@@ -130,6 +130,32 @@ body {
 
 }
 
+.cart-header-row {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 2px solid #0b5115ff;
+    font-weight: bold;
+}
+
+.cart-header-item {
+    width: 45%;
+    text-align: left;
+    padding: 0 15px;
+}
+
+.cart-header-price {
+    width: 20%;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.cart-header-amount {
+    width: 35%;
+    text-align: center;
+    padding: 0 15px;
+}
+
 .cart-header {
     font-weight: bold;
     font-size: 1.25em;
@@ -148,7 +174,7 @@ body {
     display: flex;
     align-items: center;
     padding: 15px 0;
-    flex-wrap: wrap;
+    border-bottom: 1px solid #eee;
 }
 
 .cart-item {
