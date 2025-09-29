@@ -17,7 +17,7 @@
 	</nav>
         <h1>FairyTiles</h1>
     </header>
-    <section id="tiles">
+    <section class="container" id="tiles">
       <h3 class="section-header">Плитка</h3>
       <div class="all-items">
       <div class="shop-item">
@@ -32,7 +32,7 @@
       </div>
       <div class="shop-item">
         <div>
-          <strong>Плитка керамическая FairyTiles Желтый 360X360 чип 48X48 уп. 5 шт.</strong>
+          <strong class="shop-item-title">Плитка керамическая FairyTiles Желтый 360X360 чип 48X48 уп. 5 шт.</strong>
         </div>
         <img src="Images/yellow.jpg" alt="Плитка керамическая FairyTiles Желтый" width="250" height="250">
         <div class="details">
@@ -42,7 +42,7 @@
       </div>
       <div class="shop-item">
         <div>
-          <strong>Плитка керамическая FairyTiles Красный 360X360 чип 48X48 уп. 5 шт.</strong>
+          <strong class="shop-item-title">Плитка керамическая FairyTiles Красный 360X360 чип 48X48 уп. 5 шт.</strong>
         </div>
         <img src="Images/red.jpg" alt="Плитка керамическая FairyTiles Красный" width="250" height="250">
         <div class="details">
@@ -52,7 +52,7 @@
       </div>
       <div class="shop-item">
         <div>
-          <strong>Плитка керамическая FairyTiles Фиолетовый 360X360 чип 48X48 уп. 5 шт.</strong>
+          <strong class="shop-item-title">Плитка керамическая FairyTiles Фиолетовый 360X360 чип 48X48 уп. 5 шт.</strong>
         </div>
         <img src="Images/purple.jpg" alt="Плитка керамическая FairyTiles Фиолетовый" width="250" height="250">
         <div class="details">
@@ -62,7 +62,7 @@
       </div>
       <div class="shop-item">
         <div>
-          <strong>Плитка керамическая FairyTiles Зеленый 360X360 чип 48X48 уп. 5 шт.</strong>
+          <strong class="shop-item-title">Плитка керамическая FairyTiles Зеленый 360X360 чип 48X48 уп. 5 шт.</strong>
         </div>
         <img src="Images/green.jpg" alt="Плитка керамическая FairyTiles Зеленый" width="250" height="250">
         <div class="details">
@@ -72,7 +72,7 @@
       </div>
       <div class="shop-item">
         <div>
-          <strong>Плитка керамическая FairyTiles Коричневый 360X360 чип 48X48 уп. 5 шт.</strong>
+          <strong class="shop-item-title">Плитка керамическая FairyTiles Коричневый 360X360 чип 48X48 уп. 5 шт.</strong>
         </div>
         <img src="Images/brown.jpg" alt="Плитка керамическая FairyTiles Коричневый" width="250" height="250">
         <div class="details">
@@ -82,10 +82,10 @@
       </div>
     </section>
     
-    <section id="grout">
+    <section class="container" id="grout">
       <h3 class="section-header">Затирка</h3>
       <div>
-        <strong>Затирка водостойкая Белый 5 кг.</strong>
+        <strong class="shop-item-title">Затирка водостойкая Белый 5 кг.</strong>
         </div>
         <img src="Images/ceresit_white.jpg" alt="Затирка водостойкая Белый" width="148" height="267">
         <div class="details">
@@ -95,7 +95,7 @@
 
       <div>
         <div>
-          <strong>Затирка водостойкая Черный 5 кг.</strong>
+          <strong class="shop-item-title">Затирка водостойкая Черный 5 кг.</strong>
         </div>
         <img src="Images/ceresit_black.jpg" alt="Затирка водостойкая Черный" width="148" height="267">
         <div class="details">
@@ -107,23 +107,26 @@
       </section>
     </section>
     
-    <section id="cart">
+    <section class="container" id="cart">
       <h3 class="section-header">Корзина</h3>
-      <div>
-        <strong>Товар</strong>
-        &lt;&gt;
-        <strong>Цена</strong>
-        &lt;&gt;
-        <strong>Кол-во</strong>
+      <div class="cart-row">
+        <span class="cart-item cart-header cart-column">Товар</span>
+
+        <span class="cart-price cart-header  cart-column">Цена</span>
+
+        <span class="cart-amount cart-header cart-column">Кол-во</span>
       </div>
-      <div>
+      <div class="cart-row">
+        <div class="cart-item cart-column">
         <img src="Images/brown.jpg" alt="Плитка керамическая FairyTiles Коричневый" width="100" height="100">
         <span>Плитка</span>
-        &lt;&gt;
-        <span>1200 руб.</span>
-        &lt;&gt;
+
+        <span class="cart-price cart-column">1200 руб.</span>
+        <div class="cart-amount cart-column">
         <input type="number" min="1" value="1" oninput="validity.valid||(value='');" >
         <button type="button">Удалить из корзины</button>
+        </div>
+      </div>
       </div>
       <hr>
     </section>
