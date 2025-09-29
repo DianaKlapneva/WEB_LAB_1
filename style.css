@@ -18,7 +18,7 @@ html, body {
 
 body {
     font-family: Verdana;
-    color: #052409;
+    color: #0b5115ff;
 }
 .nav ul {
     margin: 0;
@@ -54,7 +54,30 @@ body {
 }
 
 .shop-item {
+    margin: 30 px;
 
+}
+
+.shop-item-title{
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.price {
+    flex-grow: 1;
+}
+.all-items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .btn {
@@ -63,7 +86,7 @@ body {
     padding: .7em;
     border-radius: 20;
     color: white;
-    background-color: #052409;
+    background-color: #0b5115ff;
     font-weight: bold
 
 }
