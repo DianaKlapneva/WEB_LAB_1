@@ -51,7 +51,7 @@ function updateCart() {
                 <span>${item.name}</span>
             </div>
             <span class="cart-price cart-column">${item.price} руб.</span>
-            <div class="cart-amount cart-column">
+            <div class="cart-quantity cart-column">
                 <input type="number" min="1" value="${item.quantity}" 
                        onchange="updateQuantity('${item.name}', this.value)">
                 <button class="btn btn-danger remove-from-cart" 
@@ -80,4 +80,14 @@ document.addEventListener('DOMContentLoaded', function() {// это инициа
         });
     });
     updateCart();// при первом заходе на сайт загружаем корзину
+});
+
+    document.addEventListener('click', function(event) { //для появляющихся кнопок удаления
+        if (event.target.classList.contains('remove-from-cart')) {
+            const name = event.target.getAttribute('onclick').match(/'([^']+)'/)[1];
+            removeFromCart(name);
+        }
+    });
+    
+    updateCart();
 });
