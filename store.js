@@ -1,6 +1,7 @@
-let cart = JSON.parse(localStorage.getItem('cart')) || []; // в этом json хранятся данные о корзине
+let cart = JSON.parse(localStorage.getItem('cart')) || [];//json для корзины
 
 function addToCart(name, price, image) {
+    console.log('Adding to cart:', name, price, image);
     const existingItem = cart.find(item => item.name === name);  
     if (existingItem) {
         existingItem.quantity += 1;
@@ -17,15 +18,17 @@ function addToCart(name, price, image) {
 }
 
 function removeFromCart(name) {
+    console.log('Removing from cart:', name);
     cart = cart.filter(item => item.name !== name);
     updateCart();
     saveCartToStorage();
 }
 
 function updateQuantity(name, newQuantity) {
+    console.log('Updating quantity:', name, newQuantity);
     const item = cart.find(item => item.name === name);
     if (item) {
-        item.quantity = newQuantity;
+        item.quantity = parseInt(newQuantity);
         if (item.quantity <= 0) {
             removeFromCart(name);
         } else {
@@ -36,13 +39,22 @@ function updateQuantity(name, newQuantity) {
 }
 
 function updateCart() {
+    console.log('Updating cart, items:', cart);
     const cartContainer = document.querySelector('#cart .cart-items');
     const totalElement = document.querySelector('.cart-total-price');
+    
+    if (!cartContainer || !totalElement) {
+        console.error('Cart elements not found!');
+        return;
+    }
+    
     cartContainer.innerHTML = '';
     let total = 0;
-    cart.forEach(item => {  // добавляем товары в корзину
+    
+    cart.forEach(item => {
         const itemTotal = item.price * item.quantity;
-        total += itemTotal;       
+        total += itemTotal;
+        
         const cartRow = document.createElement('div');
         cartRow.className = 'cart-row';
         cartRow.innerHTML = `
@@ -61,32 +73,47 @@ function updateCart() {
         cartContainer.appendChild(cartRow);
     });
     
-    totalElement.textContent = total + ' руб.'; // обновляем сумму покупок
+    totalElement.textContent = total + ' руб.';
 }
 
-
-function saveCartToStorage() {// сохраняем данные корзины в localStorage
+function saveCartToStorage() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+
+document.addEventListener('click', function(event) {//для появляющихся кнопок удаления
+    if (event.target.classList.contains('remove-from-cart')) {
+        // получаем имя товара из атрибута onclick
+        const onclickAttr = event.target.getAttribute('onclick');
+        const match = onclickAttr.match(/removeFromCart\('([^']+)'\)/);
+        if (match) {
+            const name = match[1];
+            removeFromCart(name);
+        }
+    }
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {// это инициализация при загрузке страницы
-    const addToCartButtons = document.querySelectorAll('.add-to-cart'); // это обработчики для кнопок "Добавить в корзину"
+    console.log('DOM loaded, initializing cart...');
+    
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    console.log('Found add to cart buttons:', addToCartButtons.length);
+    
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function() {
+            console.log('Add to cart button clicked');
             const name = this.getAttribute('data-name');
             const price = parseInt(this.getAttribute('data-price'));
             const image = this.getAttribute('data-image');
+            
+            if (!name || !price || !image) {
+                console.error('Missing data attributes:', {name, price, image});
+                return;
+            }
+            
             addToCart(name, price, image);
         });
-    });
-    updateCart();// при первом заходе на сайт загружаем корзину
-});
-
-    document.addEventListener('click', function(event) { //для появляющихся кнопок удаления
-        if (event.target.classList.contains('remove-from-cart')) {
-            const name = event.target.getAttribute('onclick').match(/'([^']+)'/)[1];
-            removeFromCart(name);
-        }
     });
     
     updateCart();
