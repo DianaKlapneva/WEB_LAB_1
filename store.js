@@ -51,7 +51,7 @@ function updateCart() {
     cartContainer.innerHTML = '';
     let total = 0;
     
-    cart.forEach(item => {
+    cart.forEach((item, index) => {
         const itemTotal = item.price * item.quantity;
         total += itemTotal;
         
@@ -64,8 +64,12 @@ function updateCart() {
             </div>
             <span class="cart-price cart-column">${item.price} руб.</span>
             <div class="cart-quantity cart-column">
-                <input type="number" min="1" value="${item.quantity}" 
-                       onchange="updateQuantity('${item.name}', this.value)">
+                <input type="number" 
+                       name="quantity"
+                       min="1" 
+                       value="${item.quantity}" 
+                       onchange="updateQuantity('${item.name}', this.value)"
+                       aria-label="Количество товара ${item.name}">
                 <button class="btn btn-danger remove-from-cart" 
                         onclick="removeFromCart('${item.name}')">Удалить</button>
             </div>
