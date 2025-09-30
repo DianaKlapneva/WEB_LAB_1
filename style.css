@@ -129,8 +129,18 @@ body {
     max-width: 200px;
 }
 
-.btn-delete{
-    //это современнее, чем id??
+.btn-primary {
+    background-color: #0b5115ff;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.cart-items {
+    min-height: 100px;
 }
 
 .cart-header-row {
@@ -153,7 +163,7 @@ body {
     padding: 0 15px;
 }
 
-.cart-header-amount {
+.cart-header-quantity {
     width: 35%;
     text-align: center;
     padding: 0 15px;
@@ -193,7 +203,7 @@ body {
     text-align: center;
 }
 
-.cart-amount {
+.cart-quantity {
     width: 35%;
     display: flex;
     align-items: center;
@@ -201,7 +211,7 @@ body {
     justify-content: center;
 }
 
-.cart-amount input {
+.cart-quantity input {
     width: 60px;
     padding: 5px;
     text-align: center;
@@ -215,12 +225,13 @@ body {
     border-top: 2px solid #0b5115ff;
     margin-top: 20px;
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 2.5em;
 }
 
 .cart-total-label {
     margin-right: 20px;
-    color: #0b5115ff;
+    
+
 }
 
 .cart-total-price {
@@ -228,8 +239,7 @@ body {
     text-align: center;
     background-color: #f0f8f0;
     padding: 10px 20px;
-    border-radius: 5px;
-    border: 1px solid #0b5115ff;
+    
 }
 
 //медиа-запросы для адаптивности!!
