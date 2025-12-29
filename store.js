@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     orderForm.addEventListener('submit', function(event) {
-
+        event.preventDefault();
         //тут еще будет новое сообщение
         
         //очищаем корзину тк заказали
