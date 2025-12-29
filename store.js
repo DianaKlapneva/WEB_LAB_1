@@ -3,6 +3,41 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const cartItemsContainer = document.querySelector('.cart-items');
     const cartTotalPrice = document.querySelector('.cart-total-price');
+    const orderModal = document.getElementById('orderModal');
+    const orderForm = document.getElementById('orderForm');
+
+    function openModal() {
+        if (cart.length === 0) {
+            alert('Корзина пуста. Добавьте товары перед оформлением заказа.');
+            return;
+        }
+        orderModal.style.display = 'flex';
+    }
+    
+    function closeModal() {
+        orderModal.style.display = 'none';
+        // Очистка формы при закрытии
+        orderForm.reset();
+    }
+
+    orderModal.addEventListener('click', function(event) {
+        if (event.target === orderModal) {
+            closeModal();
+        }
+    });
+
+
+    orderForm.addEventListener('submit', function(event) {
+
+        //тут еще будет новое сообщение
+        
+        //очищаем корзину тк заказали
+        cart = [];
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartDisplay();
+
+        closeModal();
+    });
     
     function updateCartDisplay() {
         cartItemsContainer.innerHTML = '';
@@ -112,6 +147,12 @@ document.addEventListener('DOMContentLoaded', function() {
             addToCart(name, price, image);
         });
     });
+    
+    const checkoutButton = document.querySelector('#cart .add-to-cart');
+    if (checkoutButton) {
+        checkoutButton.addEventListener('click', openModal);
+        checkoutButton.textContent = 'Оформить заказ';
+    }
     
     updateCartDisplay();
 });

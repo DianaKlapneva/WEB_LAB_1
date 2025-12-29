@@ -131,16 +131,48 @@
       </div>
       
       <div class="cart-total-row">
-        <span class="cart-total-label">Total:</span>
+        <span class="cart-total-label">Сумма заказа:</span>
         <span class="cart-total-price">0 руб.</span>
     </div>
-
+    <button class="btn btn-primary add-to-cart" type="button">Оформить заказ</button>
     </section>
 
     <footer>
       <h3>FairyTiles</h3>
       Все права незащищены :3
     </footer>
-    <script src="store.js" ></script>   
+    <script src="store.js" ></script>  
+    
+    <div id="orderModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modalContent">
+            <h2>Оформление заказа</h2>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="firstName">Имя *</label>
+                    <input type="text" id="firstName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Фамилия *</label>
+                    <input type="text" id="lastName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Адрес доставки *</label>
+                    <textarea id="address" class="form-textarea" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон *</label>
+                    <input type="tel" id="phone" class="form-input" required placeholder="+7 (XXX) XXX-XX-XX">
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary">Создать заказ</button>
+                    <button type="button" class="btn btn-secondary close-modal">Отмена</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+
 </body>
 </html>
