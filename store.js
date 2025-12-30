@@ -28,15 +28,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     orderForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        //тут еще будет новое сообщение
-        
-        //очищаем корзину тк заказали
+    event.preventDefault();
+    
+    document.getElementById('modalContent').innerHTML = `
+        <h2>Ваш заказ создан!</h2>
+        <div class="success-buttons">
+            <button type="button" id="continueShopping" class="btn btn-primary">Вернуться к покупкам</button>
+        </div>
+    `;
+    
+    
+    document.getElementById('continueShopping').addEventListener('click', function() {
+
         cart = [];
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartDisplay();
-
         closeModal();
+    });
     });
     
     function updateCartDisplay() {
