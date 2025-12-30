@@ -22,12 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    orderModal.addEventListener('click', function(event) {
-        if (event.target === orderModal) {
-            closeModal();
-        }
-    });
-
+    
     function showSuccessMessage() {
 
         while (modalContent.firstChild) {
@@ -119,12 +114,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const formButtons = document.createElement('div');
     formButtons.className = 'form-buttons';
     
-  
+    const closeButton = document.createElement('button');
+    closeButton.type = 'button';
+    closeButton.className = 'btn btn-secondary';
+    closeButton.textContent = 'Закрыть';
+    closeButton.addEventListener('click', closeModal);
+
     const submitButton = document.createElement('button');
     submitButton.type = 'submit';
     submitButton.className = 'btn btn-primary';
     submitButton.textContent = 'Создать заказ';
     
+    formButtons.appendChild(closeButton);
     formButtons.appendChild(submitButton);
     orderForm.appendChild(formButtons);
     modalContent.appendChild(orderForm);
@@ -260,19 +261,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', function() {
-            const name = this.dataset.name;
-            const price = parseFloat(this.dataset.price);
-            const image = this.dataset.image;
+        if (!button.classList.contains('checkout-btn')) {
+            button.addEventListener('click', function() {
+                const name = this.dataset.name;
+                const price = parseFloat(this.dataset.price);
+                const image = this.dataset.image;
             
-            addToCart(name, price, image);
+                addToCart(name, price, image);
         });
+    }
     });
     
     const checkoutButton = document.querySelector('#cart .add-to-cart');
     if (checkoutButton) {
         checkoutButton.addEventListener('click', openModal);
         checkoutButton.textContent = 'Оформить заказ';
+        checkoutButton.classList.add('checkout-btn');
     }
 
     restoreForm();
