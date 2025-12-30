@@ -6,9 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const orderModal = document.getElementById('orderModal');
     const modalContent = document.getElementById('modalContent');
     let orderForm = document.getElementById('orderForm');
+    let isSuccessMessageShown = false;
 //все без inner html. создаем элементы динамически
     function openModal() {
-        
+        if (isSuccessMessageShown) {
+        restoreForm();
+    }
         orderModal.style.display = 'flex';
     }
     
@@ -52,18 +55,61 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartDisplay();
             closeModal();
+            isSuccessMessageShown = true;
         });
         
         successButtons.appendChild(continueButton);
         modalContent.appendChild(successButtons);
     }
 
-    if (orderForm) {
-        orderForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            showSuccessMessage();
-        });
+    //строим заново
+    function restoreForm() {
+    while (modalContent.firstChild) {
+        modalContent.removeChild(modalContent.firstChild);
     }
+    
+
+    const title = document.createElement('h2');
+    title.textContent = 'Оформление заказа';
+    modalContent.appendChild(title);
+    
+    orderForm = document.createElement('form');
+    orderForm.id = 'orderForm';
+    
+    const nameGroup = document.createElement('div');
+    nameGroup.className = 'form-group';
+    
+    const nameLabel = document.createElement('label');
+    nameLabel.htmlFor = 'name';
+    nameLabel.textContent = 'Имя *';
+    
+    const nameInput = document.createElement('input');
+    nameInput.type = 'text';
+    nameInput.id = 'name';
+    nameInput.className = 'form-input';
+    nameInput.required = true;
+    
+    nameGroup.appendChild(nameLabel);
+    nameGroup.appendChild(nameInput);
+    orderForm.appendChild(nameGroup);
+    
+    const submitButton = document.createElement('button');
+    submitButton.type = 'submit';
+    submitButton.className = 'btn btn-primary';
+    submitButton.textContent = 'Создать заказ';
+    orderForm.appendChild(submitButton);
+    
+    modalContent.appendChild(orderForm);
+    
+    orderForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        showSuccessMessage();
+    });
+    
+    isSuccessMessageShown = false;
+}
+
+
     
     function updateCartDisplay() {
         while (cartItemsContainer.firstChild) {
@@ -200,6 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
         checkoutButton.addEventListener('click', openModal);
         checkoutButton.textContent = 'Оформить заказ';
     }
-    
+
+    restoreForm();
     updateCartDisplay();
 });
