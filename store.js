@@ -73,34 +73,62 @@ document.addEventListener('DOMContentLoaded', function() {
     title.textContent = 'Оформление заказа';
     modalContent.appendChild(title);
     
+
     orderForm = document.createElement('form');
     orderForm.id = 'orderForm';
+
+    const fields = [
+        { id: 'firstName', label: 'Имя *', type: 'text', required: true },
+        { id: 'lastName', label: 'Фамилия *', type: 'text', required: true },
+        { id: 'address', label: 'Адрес доставки *', type: 'textarea', required: true, rows: 3 },
+        { id: 'phone', label: 'Телефон *', type: 'tel', required: true, placeholder: '+7 (XXX) XXX-XX-XX' }
+    ];
     
-    const nameGroup = document.createElement('div');
-    nameGroup.className = 'form-group';
+
+    fields.forEach(field => {
+        const formGroup = document.createElement('div');
+        formGroup.className = 'form-group';
+  
+        const label = document.createElement('label');
+        label.htmlFor = field.id;
+        label.textContent = field.label;
+        formGroup.appendChild(label);
+
+        let input;
+        if (field.type === 'textarea') {
+            input = document.createElement('textarea');
+            if (field.rows) input.rows = field.rows;
+        } else {
+            input = document.createElement('input');
+            input.type = field.type;
+        }
+        
+        input.id = field.id;
+        input.className = 'form-input';
+        input.required = field.required;
+        
+        if (field.placeholder) {
+            input.placeholder = field.placeholder;
+        }
+        
+        formGroup.appendChild(input);
+        orderForm.appendChild(formGroup);
+    });
     
-    const nameLabel = document.createElement('label');
-    nameLabel.htmlFor = 'name';
-    nameLabel.textContent = 'Имя *';
     
-    const nameInput = document.createElement('input');
-    nameInput.type = 'text';
-    nameInput.id = 'name';
-    nameInput.className = 'form-input';
-    nameInput.required = true;
+    const formButtons = document.createElement('div');
+    formButtons.className = 'form-buttons';
     
-    nameGroup.appendChild(nameLabel);
-    nameGroup.appendChild(nameInput);
-    orderForm.appendChild(nameGroup);
-    
+  
     const submitButton = document.createElement('button');
     submitButton.type = 'submit';
     submitButton.className = 'btn btn-primary';
     submitButton.textContent = 'Создать заказ';
-    orderForm.appendChild(submitButton);
     
+    formButtons.appendChild(submitButton);
+    orderForm.appendChild(formButtons);
     modalContent.appendChild(orderForm);
-    
+
     orderForm.addEventListener('submit', function(event) {
         event.preventDefault();
         showSuccessMessage();
