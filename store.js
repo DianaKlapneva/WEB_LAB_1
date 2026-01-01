@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const closeButton = document.createElement('button');
     closeButton.type = 'button';
-    closeButton.className = 'btn btn-secondary';
+    closeButton.className = 'btn btn-danger';
     closeButton.textContent = 'Закрыть';
     closeButton.addEventListener('click', closeModal);
 
