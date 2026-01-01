@@ -261,22 +261,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     document.querySelectorAll('.add-to-cart').forEach(button => {
-        if (!button.classList.contains('checkout-btn')) {
-            button.addEventListener('click', function() {
-                const name = this.dataset.name;
-                const price = parseFloat(this.dataset.price);
-                const image = this.dataset.image;
-            
-                addToCart(name, price, image);
+    button.addEventListener('click', function() {
+        const name = this.dataset.name;
+        const price = parseFloat(this.dataset.price);
+        const image = this.dataset.image;
+        
+        addToCart(name, price, image);
         });
-    }
-    });
+    })
     
-    const checkoutButton = document.querySelector('#cart .add-to-cart');
-    if (checkoutButton) {
-        checkoutButton.addEventListener('click', openModal);
-        checkoutButton.textContent = 'Оформить заказ';
-        checkoutButton.classList.add('checkout-btn');
+    const checkoutButton = document.querySelector('.checkout-btn');
+        if (checkoutButton) {
+    checkoutButton.addEventListener('click', openModal);
     }
 
     restoreForm();
